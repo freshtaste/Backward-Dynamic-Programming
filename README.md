@@ -4,3 +4,4 @@ This is the README file for a python and C++ program that solve the tabular MDP 
 
 The algorithms are applied to solve the Optimal Dynamic Pricing of Inventories with Stochastic Demand over Finite Horizons. For example, 10 weeks before Christmas, a supermarket decides to adjust price weekly to optimize its revenue. Assume that after Christmas, the Christmas trees are useless and price can only go down. Also, the customers arrive in Poisson distribution with intensity as a function of price.
 
+The above clearance pricing problem is similar to the order execution problem in finance. In which, a trader needs to execute an order, such as buy or sell 100 share of stocks, within 10 days. He optimally adjusts the amount of stocks to sell or buy everyday. Meanwhile, the market responds with different prices.
