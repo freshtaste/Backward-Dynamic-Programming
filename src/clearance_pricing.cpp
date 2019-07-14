@@ -27,8 +27,8 @@ float alpha = 1.0;
 float beta = 5.0;
 
 int main(){
-    int time_steps = 10;
-    int init_inv = 9;
+    int time_steps = 20;
+    int init_inv = 18;
     int n_price=50;
     cout << "Testing the performance of general backward DP and vectorized backwar DP algo. " << endl;
     cout << "Number of time steps: " << time_steps << endl;

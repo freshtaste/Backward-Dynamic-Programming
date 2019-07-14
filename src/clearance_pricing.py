@@ -4,9 +4,9 @@ from typing import List, Tuple, Mapping, Any, Sequence
 from matplotlib.ticker import PercentFormatter
 from pathlib import Path
 import numpy as np
-from pprint import pprint
 import matplotlib.pyplot as plt
 import seaborn as sns
+import time
 
 
 def get_clearance_backward_dp(
@@ -230,9 +230,9 @@ def heat_graph(
     
 
 if __name__ == '__main__':
-    ts: int = 10  # time steps
-    ii: int = 12  # initial inventory
-    bd: float = 1.0  # base demand
+    #ts: int = 10  # time steps
+    #ii: int = 12  # initial inventory
+    #bd: float = 1.0  # base demand
     #this_el: List[Tuple[float, float]] = [
     #    (0.3, 0.5), (0.5, 1.1), (0.7, 1.4)
     #]
@@ -270,17 +270,26 @@ if __name__ == '__main__':
     #     graph_perf(ts, bd, invs, els)
     
     # Simulation with larger state and action space
-    ts: int = 10
-    ii: int = 9
+    ts: int = 20
+    ii: int = 18
+    n_prices: int = 50
     el_func = lambda x, alpha, beta: alpha * np.e ** (-beta*x)
-    price_list = np.linspace(0, 1, 21)
+    price_list = np.linspace(0, 1, n_prices+1)
     alpha, beta = 1.0, 5
     this_el = [(1 - p, el_func(p, alpha, beta)) for i,p in enumerate(reversed(price_list))]
-    #graph_trace(ts, ii, bd, this_el)
+    start = time.time()
     vf_and_pol = get_clearance_backward_dp(
         ts,
         ii,
         1,
         this_el
     ).vf_and_policy
-    print(vf_and_pol[0][(ii, 0)][0], vf_and_pol[0][(ii, 0)][1])    
+    end = time.time()
+    print("Testing general backward DP in python: ")
+    print("Number of time steps: ", ts)
+    print("Initial inventory: ", ii)
+    print("Number of actions: ", n_prices)
+    print("Optimal value function at initial state: ", vf_and_pol[0][(ii, 0)][0])
+    print("Optimal policy at initial state: ", 1-this_el[vf_and_pol[0][(ii, 0)][1]][0])
+    print("Time: ", end - start)
+    

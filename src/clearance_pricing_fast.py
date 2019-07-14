@@ -48,10 +48,11 @@ if __name__ == '__main__':
     el_func = lambda x, alpha, beta: alpha * np.e ** (-beta*x)
     ts = 20
     ii = 18
-    n_prices = 100
+    n_prices = 50
     start = time.time()
     vf_pol = backwardDP_vectorized(ts, ii, [(p, el_func(p, alpha, beta)) for p in np.linspace(0, 1, n_prices+1)])
     end = time.time()
+    print("Testing vectoried backward DP in python: ")
     print("Number of time steps: ", ts)
     print("Initial inventory: ", ii)
     print("Number of actions: ", n_prices)
