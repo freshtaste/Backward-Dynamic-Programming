@@ -10,14 +10,14 @@ Testing Results:
 Number of time steps:  20; Initial inventory:  18; Number of actions:  50
 
 1. Python implementation:  
-⋅⋅*General Backward DP:  
-⋅⋅⋅Optimal value function at initial state:  1.4714437862760854;  
-⋅⋅⋅Optimal policy at initial state:  0.19999999999999996;  
-⋅⋅⋅Time:  22.30093216896057 second. 
-⋅⋅*Vectorized Backward DP:  
-⋅⋅⋅Optimal value function at initial state:  1.4714638725215468;  
-⋅⋅⋅Optimal policy at initial state:  0.2;  
-⋅⋅⋅Time:  0.13482403755187988  
+*(1)General Backward DP:  
+*Optimal value function at initial state:  1.4714437862760854;  
+*Optimal policy at initial state:  0.19999999999999996;  
+*Time:  22.30093216896057 second. 
+*(2)Vectorized Backward DP:  
+*Optimal value function at initial state:  1.4714638725215468;  
+*Optimal policy at initial state:  0.2;  
+*Time:  0.13482403755187988  
 
 2. C++ implementation:  
 ⋅⋅*General Backward DP:  
